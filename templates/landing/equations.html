@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+Equations
+{% endblock title %}
+
+
+{% block content %}
+<!--- Equation Section -->
+<div class="container-fluid padding">
+    <div class="row welcome text-center">
+        <div class="col-12">
+            <h1 class="display-4"> Equations</h1>
+            <hr>
+            <div class="col-12">
+                <p class="lead"> ....</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!--- Two Column Section -->
+<div class="container-fluid padding">
+    <div class="row padding">
+        <div class="col-lg-6">
+            <p> The U.S. Nuclear Regulatory Commission Regulation (NUREG-1940) titled
+                RASCAL 4: Description of Models and Methods gave insight into how the diffusion equation
+                can be utilized to estimate concentrations as described by Gaussian models such as TADPUFF and
+                TADPLUME. The diffusion equations selected for use in this project originate from the
+                TADPLUME and TADPUFF models. These models both use dispersion coefficients called sigma
+                y and z (𝜎𝑦, 𝜎𝑧) to estimate the seven different EPA defined atmospheric stability classes. These
+                coefficients are based on experimental results and are specified in the EPA Workbook of
+                Atmospheric Dispersion Estimates.</p>
+                <p>The models are used to estimate radiological material
+                concentrations near a point of release (TADPLUME) and a distance far from the release
+                (TADPUFF). Two models are needed because the TADPLUME model is not accurate from a
+                distance. As for the equations, in addition to the dispersion coefficients, other parameters needed
+                include the radiation rate of release (Q), wind speed (μ), off-center axis coordinates (y, x), release
+                height (h), origin axis coordinates (x0, y0), and atmospheric mixing lid (H). The equations used in
+                both of the Gaussian models are shown below.</p>
+                <br>
+                <a href="https://www.nrc.gov/docs/ML1303/ML13031A448.pdf" class="btn btn-primary">Learn more...</a>
+        </div>
+        <div class="col-lg-6">
+            <img src="equation1.png" class="img-fluid">
+            <br>
+            <img src="equation2.png" class="img-fluid">
+        </div>
+    </div>
+</div>
+<hr class="my-4">
+{% endblock content %}

@@ -1,0 +1,13 @@
+{% load static %}
+
+{% block footer %}
+
+{% if user.is_authenticated %}
+    <footer id="footer" class="container-fluid bg-blue text-center p-2 fixed-bottom">
+{% else %}
+    <footer id="footer" class="container-fluid bg-dark text-white text-center p-2 fixed-bottom">
+{% endif %}
+    Copyright &copy; <span class="year"></span> me
+    </footer>
+    
+{% endblock footer %}

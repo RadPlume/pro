@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Geo 
+{% endblock title %}
+
+    <!-- Bootstrap CSS -->
+{% block css% }
+<link rel="stylesheet" href="{{ STATIC_URL }}css/styles.css">   
+{% endblock css% }
+
+{% block content %}
+<div class="containter-fluid row">
+    <div class="container-fluid col-3 inputs">
+        <form>
+            <div>
+                Select Nuclear Power Plant Reactor:
+                <input name="Nuclear Reactors" list="Nuclear Reactors" placeholder="ex: Palo Verde">
+                <datalist id="Nuclear Reactors">
+                    <option value="Arkansas Nuclear"></option>
+                    <option value="APS Redhawk Power Plant"></option>
+                    <option value="Beaver Valley"></option>
+                    <option value="Braidwood"></option>
+                    <option value="Browns Ferry"></option>
+                    <option value="Brunswick 2"></option>
+                    <option value="Byron"></option>
+                    <option value="Callaway"></option>
+                    <option value="Calvert Cliffs"></option>
+                    <option value="Catawba"></option>
+                    <option value="Columbia Generating Station"></option>
+                    <option value="Diablo Canyon"></option>
+                    <option value="Fermi"></option>
+                    <option value="Indian Point"></option>
+                    <option value="Kyrene"></option>
+                    <option value="La Salle"></option>
+                    <option value="Nine Mile Point"></option>
+                    <option value="Point Beach"></option>
+                    <option value="Palo Verde"></option>
+                    <option value="Wolf Creek"></option>              
+            </div>
+            
+            <div>
+                Downwind Distance (km or miles):
+                <input type="number" placeholder="ex: 15" name="Downwind Distance">
+                <input type="submit">
+            </div>
+            
+            <div>
+                Off-Centerline Distance (m or miles):
+                <input type="number" placeholder="ex: 5" name="Off-Centerline">
+                <input type="submit">
+            </div>
+            
+            <div>
+                Atmospheric Stability Class (A-G):
+                <input name="class" type="radio" value="A"> A
+                <input name="class" type="radio" value="B"> B
+                <input name="class" type="radio" value="C"> C
+                <input name="class" type="radio" value="D"> D
+                <input name="class" type="radio" value="E"> E
+                <input name="class" type="radio" value="F"> F
+                <input name="class" type="radio" value="G"> G
+            </div>
+            
+            <div>
+                Wind Speed (m/s or miles/hr):
+                <input type="number" placeholder="ex: 1.8" name="Wind Speed">
+                <input type="submit">
+            </div>
+           
+            <div>
+                Release Height (m or miles):
+                <input type="number" placeholder="ex: 100" name="Release Height">
+                <input type="submit">
+            </div>
+            
+            <div>
+                Atmospheric Mixing Lid Height (m):
+                <input type="number" placeholder="ex: 800" name="Atmospheric Mixing Lid Height">
+                <input type="submit">
+            </div>
+            
+            <div>
+                Reactor Holdup Time (hrs):
+                <input type="number" placeholder="ex: 6" name="Reactor Holdup Time">
+                <input type="submit">
+            </div>
+            
+            <div>
+                Release Duration (hrs):
+                <input type="number" placeholder="ex: 2" name="Release Duration">
+                <input type="submit">
+            </div>
+           
+            <div>
+                Source Release Rates (Ci/s) for
+                <ul>
+                    <li>
+                        Noble Gases:
+                        <input type="number" placeholder="ex: 700" name="Noble Gases">
+                        <input type="submit">
+                    </li>
+                    <li>
+                        Iodines:
+                        <input type="number" placeholder="ex: 1.5" name="Iodines">
+                        <input type="submit">
+                    </li>
+                    <li>
+                        Particulates:
+                        <input type="number" placeholder="ex: 0.5" name="Particulates">
+                        <input type="submit">
+                    </li>
+                </ul>
+  
+            </div>
+        </form> 
+    </div>
+    
+    <div class="container-fluid col-10 embed-container">       
+        <iframe class="embed-responsive-item" width="100%" height="100%" frameborder="5" scrolling="no" marginheight="5" marginwidth="5" title="xr" src="https://arcgis.com/apps/Embed/index.html?webmap=4001d7656b0949cfa8a30a9a38b3bf91&amp;extent=-113.5532,33.0206,-112.7519,33.7179"></iframe>       
+    </div>
+
+</div>
+
+    <br> 
+    
+    <div class="warnings">
+    <button type="button" class="btn btn-danger">Red</button>
+    <button type="button" class="btn btn-warning">Orange</button>
+    <button type="button" class="btn btn-warning">Yellow</button>
+    <button type="button" class="btn btn-success">Green</button>
+    <button type="button" class="btn btn-light">White</button>
+    </div>
+{% endblock content %}

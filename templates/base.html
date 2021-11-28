@@ -1,0 +1,43 @@
+{% load static %}
+
+{% block doc %}
+<!doctype html>
+
+<html lang="en">
+{% block html %}
+    
+    <!-- HEAD-->
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        {% include 'head.html' %}
+    </head>    
+        <!-- BODY -->
+        <body>
+            {% block body %}
+
+            <!-- NAVBAR -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                {% include 'nav.html' %}
+                
+            </nav>
+            <!-- MAIN-->
+
+            <!-- CONTENT -->
+            <div class="container-fluid py-4">
+                {% block content %}
+                {% endblock content %}
+            </div>
+
+            <!-- FOOTER -->
+            {% include 'footer.html' %}
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+            {% block scripts %}
+            {% endblock scripts %}
+
+            {% endblock body %}
+        </body>
+
+    {% endblock html %}
+    </html>
+{% endblock doc %}
