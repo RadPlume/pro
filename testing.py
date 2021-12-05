@@ -12,3 +12,10 @@ def update():
 layout = column(ui, button, into, output)
 
 curdoc().add_root()
+ 
+# %% 
+import pandas as pd
+
+
+# %%
+ 
