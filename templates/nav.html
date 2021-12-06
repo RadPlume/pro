@@ -5,24 +5,14 @@
     <a class="navbar-brand" href="/">
         <img src="{% static 'img/brand.png' %}" alt="home" width="120" height="30">
     </a>
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav ml-auto mr-4">
+        <ul class="navbar-nav ml-auto mr-4"> 
             <li class="nav-item">
-                <a href="{% url 'geo' %}" class="nav-link">Testing</a>
-            </li>    
-            <li class="nav-item">
-                <a href="{% url 'mapi' %}" class="nav-link">Mapi</a>
-            </li> 
-            <li class="nav-item">
-                <a href="{% url 'equations' %}" class="nav-link">Equations</a>
+                <a href="{% url 'plume' %}" class="nav-link">plume</a>
             </li>   
-            <li class="nav-item">
-                <a href="{% url 'about' %}" class="nav-link">About</a>
             </li>  
         </ul>
     </div>

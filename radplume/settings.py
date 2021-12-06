@@ -8,16 +8,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = [
-    'localhost',
-    '164.90.254.46'
-    'radplume.com',
-    'www.radplume.com',
+    'twodoers.online',
+     '149.28.85.22',
 ]
 
 ROOT_URLCONF = f'{config("PROJECT_NAME")}.urls'
-
 WSGI_APPLICATION = f'{config("PROJECT_NAME")}.wsgi.application'
-
 ASGI_APPLICATION = f'{config("PROJECT_NAME")}.asgi.application'
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -26,7 +22,6 @@ SECRET_KEY = f'{config("SECRET_KEY")}'
 # Application definition
 INSTALLED_APPS = [
     'storages',
-    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -34,10 +29,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.templatetags.static',
-    'radplume',
-    'mapi',
-    'landing',
-    'geo',
+    'channels',
+    'bokeh.server.django',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +48,6 @@ TEMPLATES = [
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
             BASE_DIR / 'templates',
-            BASE_DIR / 'templates/mapi',
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -87,6 +79,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Internationalizat
+
 USE_TZ = True
 
 USE_L10N = True
@@ -121,13 +114,14 @@ AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
 AWS_LOCATION = config('AWS_LOCATION')
-STATIC_URL = f'https://{AWS_S3_ENDPOINT_URL}/{AWS_LOCATION}/'
+STATIC_URL = f'https://{PROJECT_NAME}.{AWS_S3_ENDPOINT_URL}/{AWS_LOCATION}/'
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATICFILES_DIRS = [
+    bokehjsdir(),
     BASE_DIR / 'static',
 ]
 
@@ -138,12 +132,4 @@ TEMP = BASE_DIR / 'temp'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'RadPlume Team <noreply@radplume.com>'
-
-BASE_URL = "https://radplume.com"
+BASE_URL = "http://twodoers.online"
