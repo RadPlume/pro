@@ -5,7 +5,7 @@ from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = [
     'twodoers.online',
@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.gis',
     'django.contrib.staticfiles',
     'django.templatetags.static',
     'channels',
@@ -103,6 +104,15 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '',
     }
+    'gis': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis'),
+        'NAME': f'{config("DB_NAME")}',
+        'USER': f'{config("DB_USER")}',
+        'PASSWORD': f'{config("DB_PASSWORD")}',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+
 }
 
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
