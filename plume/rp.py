@@ -1,2 +1,2 @@
-class Raplume():
-    
+class Dashboard:
+    pass
