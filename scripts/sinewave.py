@@ -35,3 +35,10 @@ class SineWave(param.Parameterized):
         x = np.linspace(0, 4*np.pi, self.N)
         y = self.amplitude*np.sin(self.frequency*x + self.phase) + self.offset
         return x, y
+
+
+import pandas as pd
+
+def _read_data():
+    df = pd.read_csv('NuclearPlants.csv')
+    

@@ -1,20 +1,20 @@
 from pathlib import Path
 from decouple import config
-from bokeh.settings import settings, bokehjsdir
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'twodoers.online',
-    '149.28.85.22',
+     '149.28.85.22',
 ]
 
 ROOT_URLCONF = f'{config("PROJECT_NAME")}.urls'
-#WSGI_APPLICATION = f'{config("PROJECT_NAME")}.wsgi.application'
+WSGI_APPLICATION = f'{config("PROJECT_NAME")}.wsgi.application'
 ASGI_APPLICATION = f'{config("PROJECT_NAME")}.asgi.application'
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -28,13 +28,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.gis',
     'django.contrib.staticfiles',
     'django.templatetags.static',
     'channels',
     'bokeh.server.django',
-    'plume',
-    'landing',
 ]
 
 MIDDLEWARE = [
@@ -107,15 +104,6 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '',
     }
-    'gis': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis'),
-        'NAME': f'{config("DB_NAME")}',
-        'USER': f'{config("DB_USER")}',
-        'PASSWORD': f'{config("DB_PASSWORD")}',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-
 }
 
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
@@ -127,7 +115,8 @@ AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
 AWS_LOCATION = config('AWS_LOCATION')
-STATIC_URL = config('STATIC_URL')
+STATIC_URL = f'https://{PROJECT_NAME}.{AWS_S3_ENDPOINT_URL}/{AWS_LOCATION}/'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
