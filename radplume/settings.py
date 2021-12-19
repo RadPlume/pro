@@ -106,9 +106,9 @@ DATABASES = {
         'PASSWORD': f'{config("DB_PASSWORD")}',
         'HOST': 'localhost',
         'PORT': '',
-    }
+    },
     'gis': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis'),
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': f'{config("DB_NAME")}',
         'USER': f'{config("DB_USER")}',
         'PASSWORD': f'{config("DB_PASSWORD")}',
