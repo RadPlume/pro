@@ -1,20 +1,20 @@
 from pathlib import Path
 from decouple import config
-from bokeh.settings import settings, bokehjsdir
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'twodoers.online',
-    '149.28.85.22',
+     '149.28.85.22',
 ]
 
 ROOT_URLCONF = f'{config("PROJECT_NAME")}.urls'
-#WSGI_APPLICATION = f'{config("PROJECT_NAME")}.wsgi.application'
+WSGI_APPLICATION = f'{config("PROJECT_NAME")}.wsgi.application'
 ASGI_APPLICATION = f'{config("PROJECT_NAME")}.asgi.application'
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -28,13 +28,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.gis',
     'django.contrib.staticfiles',
     'django.templatetags.static',
     'channels',
     'bokeh.server.django',
-    'plume',
-    'landing',
 ]
 
 MIDDLEWARE = [
@@ -139,6 +136,7 @@ AWS_S3_OBJECT_PARAMETERS = {
 }
 AWS_LOCATION = config('AWS_LOCATION')
 STATIC_URL = config('STATIC_URL')
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
